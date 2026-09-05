@@ -18,4 +18,6 @@ public interface BorrowingRepository extends JpaRepository<Borrowing, Long> {
 
     List<Borrowing> findByStatus(BorrowingStatus status);
 
+    boolean existsByUser_EmailAndBook_IdAndStatus(String email, Long bookId, BorrowingStatus status);
+
 }

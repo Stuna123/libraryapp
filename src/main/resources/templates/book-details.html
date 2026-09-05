@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
   <head>
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +11,22 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg bg-light border-bottom">
+      <div class="container">
+        <a class="navbar-brand fw-bold" th:href="@{/}">
+          LibraryApp
+        </a>
+
+        <div class="d-flex gap-2 align-items-center">
+          <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" class="d-inline">
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+              Déconnexion
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
     <div class="container py-5">
       <a th:href="@{/books}" class="btn btn-outline-secondary mb-4">
         Retour au catalogue
@@ -35,7 +53,7 @@
 
           <p class="card-text mb-1">
             <strong>Catégorie : </strong>
-            <span th:text="${book.category}">Catégorie</span>
+            <span th:text="${book.category.displayName}">Catégorie</span>
           </p>
 
           <p class="card-text mb-1">
@@ -50,9 +68,39 @@
             <span th:text="${book.description}">Description complète du livre</span>
           </p>
 
-          <a href="#" class="btn btn-primary">
-            Emprunter ce livre
-          </a>
+          <div class="alert alert-danger" th:if="${errorMessage}">
+            <span th:text="${errorMessage}">Erreur</span>
+          </div>
+          <div sec:authorize="isAnonymous()">
+            <a th:href="@{/login}" class="btn btn-primary">
+              Connectez-vous pour emprunter
+            </a>
+          </div>
+          <div sec:authorize="isAuthenticated()" th:if="${book.availableCopies > 0}">
+            <form th:action="@{/borrow/books/{id}(id=${book.id})}" method="post">
+              <div class="mb-3">
+                <label for="numberOfDays" class="form-label">
+                  Durée d'emprunt en jours
+                </label>
+
+                <input type="number"
+                       id="numberOfDays"
+                       name="numberOfDays"
+                       class="form-control"
+                       min="1"
+                       max="30"
+                       value="14"
+                       required>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Emprunter ce livre
+              </button>
+            </form>
+          </div>
+          <div sec:authorize="isAuthenticated()" th:if="${book.availableCopies <= 0}" class="alert alert-warning">
+            Aucun exemplaire disponible pour ce livre.
+          </div>
         </div>
       </div>
     </div>

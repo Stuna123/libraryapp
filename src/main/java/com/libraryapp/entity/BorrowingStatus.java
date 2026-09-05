@@ -8,7 +8,17 @@ package com.libraryapp.entity;
  *  LATE : the expected return date has passed
  */
 public enum BorrowingStatus {
-    BORROWED,
-    RETURNED,
-    LATE
+    BORROWED("Emprunté"),
+    RETURNED("Retourné"),
+    LATE("En retard");
+
+    private final String displayName;
+
+    BorrowingStatus(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
 }

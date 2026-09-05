@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-  <html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +11,38 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg bg-light border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                LibraryApp
+            </a>
+
+            <div class="d-flex gap-2 align-items-center">
+                <a sec:authorize="isAnonymous()" class="btn btn-outline-secondary" th:href="@{/login}">
+                    Connexion
+                </a>
+
+                <a sec:authorize="isAnonymous()" class="btn btn-outline-primary" th:href="@{/register}">
+                    Inscription
+                </a>
+
+                <a sec:authorize="isAuthenticated()" class="btn btn-outline-primary btn-sm" th:href="@{/borrowings}">
+                    Mes emprunts
+                </a>
+
+                <a sec:authorize="hasRole('ADMIN')" class="btn btn-outline-warning btn-sm" th:href="@{/admin}">
+                    Admin
+                </a>
+
+                <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                        Déconnexion
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <div class="container py-5">
         <h1>Catalogue des livres</h1>
         <p class="text-muted">Découvrez les livres disponibles dans notre bibliothèque</p>
@@ -15,7 +50,7 @@
             <a th:href="@{/books}" class="btn btn-outline-secondary btn-sm">Tous</a>
             <a  th:each="category : ${categories}"
                 th:href="@{/books(category=${category})}"
-                th:text="${category}"
+                th:text="${category.displayName}"
                 class="btn btn-outline-primary btn-sm"
             >
                 Catégories
@@ -38,7 +73,7 @@
 
                   <p class="card-text mb-1">
                       <strong>Catégorie : </strong>
-                      <span th:text="${book.category}">Catégorie</span>
+                      <span th:text="${book.category.displayName}">Catégorie</span>
                   </p>
 
                   <p class="card-text mb-1">

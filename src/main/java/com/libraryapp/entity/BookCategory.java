@@ -6,11 +6,21 @@ package com.libraryapp.entity;
  */
 
 public enum BookCategory {
-    NOVEL,
-    SCIENCE,
-    HISTORY,
-    COMPUTER_SCIENCE,
-    PERSONAL_DEVELOPMENT,
-    THEOLOGY,
-    OTHER
+    NOVEL("Romans"),
+    SCIENCE("Sciences"),
+    HISTORY("Histoire"),
+    COMPUTER_SCIENCE("Informatique"),
+    PERSONAL_DEVELOPMENT("Développement personnel"),
+    THEOLOGY("Théologie"),
+    OTHER("Autres");
+
+    private final String displayName;
+
+    BookCategory(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
 }
