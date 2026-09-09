@@ -93,4 +93,8 @@ public class BorrowingService {
         borrowingRepository.save(borrowing);
         bookRepository.save(book);
     }
+
+    public List<Borrowing> getAllBorrowings() {
+        return borrowingRepository.findAll();
+    }
 }

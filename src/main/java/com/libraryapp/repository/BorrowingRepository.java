@@ -14,10 +14,12 @@ public interface BorrowingRepository extends JpaRepository<Borrowing, Long> {
 
     List<Borrowing> findByUser_Email(String email);
 
-    List<Borrowing> findByBook_Id(String bookId);
+    List<Borrowing> findByBook_Id(Long bookId);
 
     List<Borrowing> findByStatus(BorrowingStatus status);
 
     boolean existsByUser_EmailAndBook_IdAndStatus(String email, Long bookId, BorrowingStatus status);
+
+    boolean existsByBook_Id(Long bookId);
 
 }
