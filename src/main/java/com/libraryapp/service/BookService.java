@@ -9,6 +9,9 @@ import com.libraryapp.form.BookForm;
 import org.springframework.transaction.annotation.Transactional;
 import com.libraryapp.repository.BorrowingRepository;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +34,9 @@ public class BookService {
 
     public Book getBookById(Long id) {
         return bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id : " + id));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Book not found with id : " + id)
+                );
     }
 
     public List<Book> getBooksByCategory(BookCategory category) {
