@@ -23,7 +23,7 @@ public class UserService {
 
     public void registerUser(RegisterForm form) {
         if (appUserRepository.existsByEmail(form.getEmail())) {
-           throw new RuntimeException("Un compte existe déjà avec cet email");
+           throw new RuntimeException("Un compte existe déjà avec cet email.");
         }
 
         AppUser appUser = AppUser.builder()
