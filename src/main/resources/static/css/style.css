@@ -1,0 +1,398 @@
+/* =========================================================
+   LibraryApp - Global Theme Variables
+   Ces variables permettent de centraliser les couleurs du site.
+   Si on veut changer l'identité visuelle, on modifie ici.
+========================================================= */
+
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #f59e0b;
+
+    --dark-color: #111827;
+    --muted-color: #6b7280;
+
+    --light-bg: #f8fafc;
+    --soft-bg: #eff6ff;
+    --card-bg: #ffffff;
+
+    --border-color: #e5e7eb;
+
+    --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+    --shadow-light: 0 8px 20px rgba(15, 23, 42, 0.05);
+
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 14px;
+}
+
+
+/* =========================================================
+   Global Base
+   Styles généraux appliqués à tout le site.
+========================================================= */
+
+body {
+    background: var(--light-bg);
+    color: var(--dark-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+.section-title {
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    color: var(--muted-color);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   Navbar
+   Barre de navigation commune aux pages publiques.
+========================================================= */
+
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar-brand {
+    letter-spacing: -0.4px;
+}
+
+
+/* =========================================================
+   Home Page - Hero Section
+   Grande section d'accueil qui donne la première impression.
+========================================================= */
+
+.hero-section {
+    background: linear-gradient(135deg, var(--soft-bg), #ffffff);
+    border-radius: var(--radius-lg);
+    padding: 80px 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+}
+
+.hero-badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: var(--primary-dark);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.hero-text {
+    max-width: 720px;
+    margin: 20px auto 0;
+    color: var(--muted-color);
+    font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   Home Page - Feature Cards
+   Cartes de la section "Pourquoi utiliser LibraryApp ?"
+========================================================= */
+
+.feature-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #dbeafe;
+    color: var(--primary-color);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   Home Page - Value Section
+   Section sombre qui explique la valeur de l'application.
+========================================================= */
+
+.value-section {
+    background: var(--dark-color);
+    color: white;
+    border-radius: var(--radius-lg);
+    padding: 60px 40px;
+    box-shadow: var(--shadow-soft);
+}
+
+.value-section .text-muted-custom {
+    color: #d1d5db;
+}
+
+
+/* =========================================================
+   Home Page - CTA Section
+   Section d'appel à l'action qui remplace le faux formulaire.
+========================================================= */
+
+.cta-section {
+    background: linear-gradient(135deg, #ffffff, var(--soft-bg));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 60px 40px;
+    box-shadow: var(--shadow-light);
+}
+
+
+/* =========================================================
+   Catalogue Page
+   Header et filtres de la page /books.
+========================================================= */
+
+.catalog-header {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow-light);
+}
+
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   Book Cards
+   Cartes utilisées dans index.html et books.html.
+========================================================= */
+
+.book-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+}
+
+.book-card .card-body {
+    padding: 24px;
+}
+
+.book-cover-placeholder {
+    height: 180px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.book-cover-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================================
+   Book Details Page
+   Styles de la page /books/{id}.
+========================================================= */
+
+.book-detail-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-soft);
+}
+
+.book-detail-img {
+    background: #f8fafc;
+    width: 100%;
+    height: 100%;
+    max-height: 620px;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    display: block;
+}
+
+.book-detail-placeholder {
+    min-height: 520px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    font-weight: 800;
+}
+
+.book-detail-content {
+    height: 100%;
+    padding: 12px;
+}
+
+.book-detail-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.8px;
+}
+
+.book-info-list {
+    display: grid;
+    gap: 12px;
+}
+
+.book-info-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: #f8fafc;
+}
+
+.book-info-label {
+    color: var(--muted-color);
+    font-weight: 600;
+}
+
+.book-info-value {
+    font-weight: 700;
+    text-align: right;
+}
+
+.borrow-box {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+}
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+.footer-custom {
+    color: var(--muted-color);
+}
+
+
+/* =========================================================
+   Responsive Design
+   Amélioration du rendu sur tablette et mobile.
+========================================================= */
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 56px 24px;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+
+    .catalog-header {
+        padding: 28px;
+    }
+
+    .value-section,
+    .cta-section {
+        padding: 40px 24px;
+    }
+
+    .book-detail-card {
+        padding: 20px;
+    }
+
+    .book-detail-placeholder {
+        min-height: 320px;
+        font-size: 4rem;
+    }
+
+    .book-detail-img {
+        max-height: 420px;
+    }
+
+    .book-info-item {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .book-info-value {
+        text-align: left;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .navbar .d-flex {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-section {
+        padding: 44px 20px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .filter-bar {
+        gap: 8px;
+    }
+
+    .book-cover-img,
+    .book-cover-placeholder {
+        height: 160px;
+    }
+}
