@@ -12,7 +12,7 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="dark-mode">
     <nav class="navbar navbar-expand-lg bg-light border-bottom">
         <div class="container">
             <a class="navbar-brand fw-bold" th:href="@{/}">
@@ -35,6 +35,10 @@
                 <a sec:authorize="hasRole('ADMIN')" class="btn btn-outline-warning btn-sm" th:href="@{/admin}">
                     Admin
                 </a>
+
+                <button id="themeToggle" type="button" class="btn btn-outline-dark btn-sm">
+                    Mode sombre
+                </button>
 
                 <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" class="d-inline">
                     <button type="submit" class="btn btn-outline-danger btn-sm">
@@ -124,5 +128,7 @@
 
         </div>
     </div>
+
+  <script th:src="@{/js/theme.js}"></script>
   </body>
 </html>

@@ -317,6 +317,88 @@ a {
     color: var(--muted-color);
 }
 
+/* =========================================================
+   Dark / Light Mode
+   Ces styles s'activent quand le body reçoit la classe dark-mode.
+========================================================= */
+
+body.dark-mode {
+    background: #020617;
+    color: #e5e7eb;
+}
+
+body.dark-mode .navbar {
+    background: rgba(15, 23, 42, 0.95) !important;
+    border-color: #1e293b !important;
+}
+
+body.dark-mode .navbar-brand {
+    color: #f8fafc;
+}
+
+body.dark-mode .hero-section,
+body.dark-mode .catalog-header,
+body.dark-mode .cta-section,
+body.dark-mode .book-detail-card,
+body.dark-mode .book-card,
+body.dark-mode .feature-card {
+    background: #0f172a;
+    border-color: #1e293b;
+    color: #e5e7eb;
+}
+
+body.dark-mode .hero-section,
+body.dark-mode .cta-section {
+    background: linear-gradient(135deg, #0f172a, #111827);
+}
+
+body.dark-mode .hero-text,
+body.dark-mode .section-subtitle,
+body.dark-mode .text-muted,
+body.dark-mode .footer-custom {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .book-info-item,
+body.dark-mode .borrow-box {
+    background: #111827;
+    border-color: #1e293b;
+}
+
+body.dark-mode .book-info-label {
+    color: #94a3b8;
+}
+
+body.dark-mode .book-cover-placeholder,
+body.dark-mode .book-detail-placeholder {
+    background: linear-gradient(135deg, #1d4ed8, #92400e);
+}
+
+body.dark-mode .badge.text-bg-light {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .btn-outline-dark {
+    color: #e5e7eb;
+    border-color: #64748b;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+    background: #e5e7eb;
+    color: #020617;
+}
+
+body.dark-mode .btn-outline-secondary {
+    color: #e5e7eb;
+    border-color: #64748b;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background: #e5e7eb;
+    color: #020617;
+}
 
 /* =========================================================
    Responsive Design
