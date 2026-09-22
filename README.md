@@ -574,12 +574,25 @@ Planned screenshots:
 
 ```text
 Home page
+![img_1.png](img_1.png)
+
 Catalogue
+![img_2.png](img_2.png)
+
 Book details
+![img_4.png](img_4.png)
+
 Borrowing history
+![img_6.png](img_6.png)
+
 Admin dashboard
+![img_8.png](img_8.png)
+
 Book management
-Dark mode
+![img_10.png](img_10.png)
+
+Light mode
+![img_12.png](img_12.png)
 ```
 
 ---

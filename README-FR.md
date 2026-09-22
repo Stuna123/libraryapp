@@ -578,12 +578,25 @@ Captures prévues :
 
 ```text
 Page d'accueil
+![img.png](img.png)
+
 Catalogue
+![img_3.png](img_3.png)
+
 Détail d'un livre
+![img_5.png](img_5.png)
+
 Historique des emprunts
+![img_7.png](img_7.png)
+
 Dashboard administrateur
+![img_9.png](img_9.png)
+
 Gestion des livres
-Mode sombre
+![img_11.png](img_11.png)
+
+Mode clair
+![img_13.png](img_13.png)
 ```
 
 ---
