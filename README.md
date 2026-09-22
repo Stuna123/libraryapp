@@ -574,9 +574,12 @@ Planned screenshots:
 
 ```text
 Home page
+```
 ![img_1.png](img_1.png)
 
+```
 Catalogue
+```
 ![img_2.png](img_2.png)
 
 Book details
