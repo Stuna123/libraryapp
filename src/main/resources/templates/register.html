@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
->
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +11,7 @@
         <link th:href="@{/css/style.css}" rel="stylesheet">
     </head>
 
-    <body class="dark-mode">
+    <body>
         <nav class="navbar navbar-expand-lg bg-light border-bottom">
             <div class="container">
                 <a class="navbar-brand fw-bold" th:href="@{/}">
@@ -23,6 +22,11 @@
                     <a th:href="@{/}" class="btn btn-outline-primary btn-sm">
                         Accueil
                     </a>
+
+                    <a th:href="@{/books}" class="btn btn-outline-primary btn-sm">
+                        Catalogue
+                    </a>
+
                     <a sec:authorize="isAnonymous()" class="btn btn-outline-primary btn-sm" th:href="@{/login}">
                         Connexion
                     </a>
@@ -33,14 +37,16 @@
                 </div>
             </div>
         </nav>
-
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <div class="card shadow-sm">
+                    <div class="card auth-card">
                         <div class="card-body">
 
-                            <h1 class="h3 text-center mb-4">Créer un compte</h1>
+                            <div class="auth-header">
+                                <h1 class="h3">Créer un compte</h1>
+                                <p>Créez votre espace lecteur pour emprunter et suivre vos livres.</p>
+                            </div>
 
                             <form th:action="@{/register}" th:object="${registerForm}" method="post">
 
@@ -105,6 +111,6 @@
             </div>
         </div>
 
-    <script th:src="@{/js/theme.js}"></script>
+        <script th:src="@{/js/theme.js}"></script>
     </body>
 </html>

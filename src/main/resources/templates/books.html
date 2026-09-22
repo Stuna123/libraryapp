@@ -12,7 +12,7 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
   </head>
 
-  <body class="dark-mode">
+  <body>
     <nav class="navbar navbar-expand-lg bg-light border-bottom">
         <div class="container">
             <a class="navbar-brand fw-bold" th:href="@{/}">
@@ -80,16 +80,34 @@
           <div class="col-md-4" th:each="book : ${books}">
               <div class="card book-card h-100">
 
-                  <div th:if="${book.imageUrl != null and !#strings.isEmpty(book.imageUrl)}">
-                      <img th:src="@{${book.imageUrl}}"
-                           class="book-cover-img"
+                  <div class="book-cover-wrapper">
+                      <!-- Couverture Open Library -->
+                      <img th:if="${book.isbn != null and !#strings.isEmpty(book.isbn)}"
+                           th:src="${'https://covers.openlibrary.org/b/isbn/'
+                                   + #strings.replace(#strings.replace(book.isbn, '-', ''), ' ', '')
+                                   + '-M.jpg?default=false'}"
+                           class="book-cover-img open-library-cover"
                            th:alt="${book.title}"
-                      >
-                  </div>
+                           loading="lazy">
 
-                  <div th:if="${book.imageUrl == null or #strings.isEmpty(book.imageUrl)}"
-                       class="book-cover-placeholder">
-                      <span th:text="${#strings.substring(book.title, 0, 1)}">L</span>
+
+                      <!-- Placeholder lorsque l'API échoue -->
+                      <div  th:if="${book.isbn != null and !#strings.isEmpty(book.isbn)}"
+                            class="book-cover-placeholder d-none">
+                          <span th:text="${#strings.substring(book.title, 0, 1)}">
+                              L
+                          </span>
+                      </div>
+
+                      <!-- Placeholder lorsque aucun ISBN n'existe -->
+                      <div class="book-cover-placeholder"
+                           th:if="${(book.isbn == null or #strings.isEmpty(book.isbn))}">
+
+                        <span th:text="${#strings.substring(book.title, 0, 1)}">
+                            L
+                        </span>
+                      </div>
+
                   </div>
 
                   <div class="card-body">
@@ -129,6 +147,7 @@
         </div>
     </div>
 
-  <script th:src="@{/js/theme.js}"></script>
+    <script th:src="@{/js/book-covers.js}"></script>
+    <script th:src="@{/js/theme.js}"></script>
   </body>
 </html>

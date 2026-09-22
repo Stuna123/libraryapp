@@ -3,7 +3,6 @@
    Ces variables permettent de centraliser les couleurs du site.
    Si on veut changer l'identité visuelle, on modifie ici.
 ========================================================= */
-
 :root {
     --primary-color: #2563eb;
     --primary-dark: #1d4ed8;
@@ -31,7 +30,6 @@
    Global Base
    Styles généraux appliqués à tout le site.
 ========================================================= */
-
 body {
     background: var(--light-bg);
     color: var(--dark-color);
@@ -52,12 +50,10 @@ a {
     margin: 0 auto;
 }
 
-
 /* =========================================================
    Navbar
    Barre de navigation commune aux pages publiques.
 ========================================================= */
-
 .navbar {
     background: rgba(255, 255, 255, 0.95) !important;
 }
@@ -66,12 +62,10 @@ a {
     letter-spacing: -0.4px;
 }
 
-
 /* =========================================================
    Home Page - Hero Section
    Grande section d'accueil qui donne la première impression.
 ========================================================= */
-
 .hero-section {
     background: linear-gradient(135deg, var(--soft-bg), #ffffff);
     border-radius: var(--radius-lg);
@@ -104,12 +98,10 @@ a {
     font-size: 1.2rem;
 }
 
-
 /* =========================================================
    Home Page - Feature Cards
    Cartes de la section "Pourquoi utiliser LibraryApp ?"
 ========================================================= */
-
 .feature-card {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -139,7 +131,6 @@ a {
    Home Page - Value Section
    Section sombre qui explique la valeur de l'application.
 ========================================================= */
-
 .value-section {
     background: var(--dark-color);
     color: white;
@@ -157,7 +148,6 @@ a {
    Home Page - CTA Section
    Section d'appel à l'action qui remplace le faux formulaire.
 ========================================================= */
-
 .cta-section {
     background: linear-gradient(135deg, #ffffff, var(--soft-bg));
     border: 1px solid var(--border-color);
@@ -166,12 +156,10 @@ a {
     box-shadow: var(--shadow-light);
 }
 
-
 /* =========================================================
    Catalogue Page
    Header et filtres de la page /books.
 ========================================================= */
-
 .catalog-header {
     background: #ffffff;
     border: 1px solid var(--border-color);
@@ -186,12 +174,10 @@ a {
     flex-wrap: wrap;
 }
 
-
 /* =========================================================
    Book Cards
    Cartes utilisées dans index.html et books.html.
 ========================================================= */
-
 .book-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -223,16 +209,14 @@ a {
 .book-cover-img {
     width: 100%;
     height: 180px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
-
 
 /* =========================================================
    Book Details Page
    Styles de la page /books/{id}.
 ========================================================= */
-
 .book-detail-card {
     background: #ffffff;
     border: 1px solid var(--border-color);
@@ -308,20 +292,10 @@ a {
     padding: 24px;
 }
 
-
-/* =========================================================
-   Footer
-========================================================= */
-
-.footer-custom {
-    color: var(--muted-color);
-}
-
 /* =========================================================
    Dark / Light Mode
    Ces styles s'activent quand le body reçoit la classe dark-mode.
 ========================================================= */
-
 body.dark-mode {
     background: #020617;
     color: #e5e7eb;
@@ -398,6 +372,175 @@ body.dark-mode .btn-outline-secondary {
 body.dark-mode .btn-outline-secondary:hover {
     background: #e5e7eb;
     color: #020617;
+}
+
+body.dark-mode .book-cover-img {
+    background: #0f172a;
+}
+/* =========================================================
+   Auth Pages
+   Styles pour login.html et register.html.
+========================================================= */
+.auth-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-header h1 {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.auth-header p {
+    color: var(--muted-color);
+    margin-bottom: 0;
+}
+
+body.dark-mode .auth-card {
+    background: #0f172a;
+    border-color: #1e293b;
+    color: #e5e7eb;
+}
+
+body.dark-mode .auth-header p {
+    color: #cbd5e1;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background: #020617;
+    border-color: #334155;
+    color: #e5e7eb;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #94a3b8;
+}
+
+body.dark-mode .form-label {
+    color: #e5e7eb;
+}
+
+/* =========================================================
+   User Borrowings Page
+   Styles pour la page /borrowings.
+========================================================= */
+
+.page-header {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow-light);
+}
+
+.table-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+.table-card table {
+    margin-bottom: 0;
+}
+
+body.dark-mode .page-header,
+body.dark-mode .table-card {
+    background: #0f172a;
+    border-color: #1e293b;
+    color: #e5e7eb;
+}
+
+body.dark-mode .table {
+    --bs-table-bg: #0f172a;
+    --bs-table-color: #e5e7eb;
+    --bs-table-border-color: #1e293b;
+    --bs-table-hover-bg: #222e4d;
+    color: #e5e7eb;
+}
+
+body.dark-mode .table-light {
+    --bs-table-bg: #111827;
+    --bs-table-color: #f8fafc;
+    --bs-table-border-color: #1e293b;
+}
+
+/* =========================================================
+   Admin Dashboard
+   Styles pour admin.html
+========================================================= */
+.admin-dashboard-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Dark mode */
+body.dark-mode .admin-dashboard-card {
+    background: #0f172a;
+    border-color: #1e293b;
+    color: #e5e7eb;
+}
+
+/* =========================================================
+   Admin Dashboard
+   Styles pour admin-book-form.html
+========================================================= */
+.admin-form-card {
+    background: var(--card-bg);
+    border: 1px solid var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-light);
+}
+
+body.dark-mode .admin-form-card {
+    background: #0f172a;
+    border-color: #1e293b;
+    color: #e5e7eb;
+}
+
+body.dark-mode .form-text {
+    color: #94a3b8;
+}
+
+/* =========================================================
+   Book Cover API
+   Conteneur des couvertures et fallback Open Library.
+========================================================= */
+.book-cover-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+/* =========================================================
+   Book Detail Cover API
+========================================================= */
+.book-detail-cover-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+/* =========================================================
+   Footer
+========================================================= */
+.footer-custom {
+    color: var(--muted-color);
 }
 
 /* =========================================================

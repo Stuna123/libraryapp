@@ -11,7 +11,7 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
   </head>
 
-  <body class="dark-mode">
+  <body>
     <nav class="navbar navbar-expand-lg bg-light border-bottom">
       <div class="container">
         <a class="navbar-brand fw-bold" th:href="@{/}">
@@ -42,15 +42,34 @@
         <div class="row g-4 align-items-stretch">
 
           <div class="col-md-5">
-            <div th:if="${book.imageUrl != null and !#strings.isEmpty(book.imageUrl)}">
-              <img th:src="@{${book.imageUrl}}"
-                   class="book-detail-img"
-                   th:alt="${book.title}">
-            </div>
+            <div class="book-detail-cover-wrapper">
 
-            <div th:if="${book.imageUrl == null or #strings.isEmpty(book.imageUrl)}"
-                 class="book-detail-placeholder">
-              <span th:text="${#strings.substring(book.title, 0, 1)}">L</span>
+              <!-- Couverture Open Library -->
+              <img  th:if="${book.isbn != null and !#strings.isEmpty(book.isbn)}"
+                    th:src="${'https://covers.openlibrary.org/b/isbn/'
+                            + #strings.replace(#strings.replace(book.isbn, '-', ''), ' ', '')
+                            + '-L.jpg?default=false'}"
+                    class="book-detail-img open-library-cover"
+                    th:alt="${book.title}"
+              >
+
+              <!-- Fallback si open library échoue-->
+              <div  th:if="${book.isbn != null and !#strings.isEmpty(book.isbn)}"
+                    class="book-detail-placeholder d-none"
+              >
+                <span th:text="${#strings.substring(book.title, 0, 1)}">
+                  L
+                </span>
+              </div>
+
+              <!-- Aucun isbn -->
+              <div  class="book-detail-placeholder "
+                    th:if="${book.isbn == null or #strings.isEmpty(book.isbn)}">
+                <span th:text="${#strings.substring(book.title, 0, 1)}">
+                  L
+                </span>
+              </div>
+
             </div>
           </div>
 
@@ -155,6 +174,7 @@
       </div>
     </div>
 
-  <script th:src="@{/js/theme.js}"></script>
+    <script th:src="@{/js/book-covers.js}"></script>
+    <script th:src="@{/js/theme.js}"></script>
   </body>
 </html>

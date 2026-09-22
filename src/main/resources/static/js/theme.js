@@ -8,16 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
         body.classList.add("dark-mode");
         updateButtonText("dark");
     } else {
+        body.classList.remove("dark-mode");
         updateButtonText("light");
     }
 
     if (themeToggleButton) {
         themeToggleButton.addEventListener("click", function () {
-            body.classList.toggle("dark-mode");
+            const isDarkMode = body.classList.toggle("dark-mode");
 
-            if (body.classList.contains("dark-mode")) {
-                localStorage.setItem("library-theme", "dark");
-                updateButtonText("dark")
+            if (isDarkMode) {
+                localStorage.setItem("libraryapp-theme", "dark");
+                updateButtonText("dark");
             } else {
                 localStorage.setItem("libraryapp-theme", "light");
                 updateButtonText("light");
@@ -36,4 +37,4 @@ document.addEventListener("DOMContentLoaded", function () {
             themeToggleButton.textContent = "Mode sombre";
         }
     }
-})
+});
