@@ -10,9 +10,9 @@
     </parent>
     <groupId>com.libraryapp</groupId>
     <artifactId>libraryapp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>libraryapp</name>
-    <description>libraryapp</description>
+    <description>Library amanagement web application built with Java, Spring Boot, Thymeleaf and MySQL</description>
     <url/>
     <licenses>
         <license/>

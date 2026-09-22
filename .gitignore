@@ -1,8 +1,20 @@
 HELP.md
+
+### Maven ###
 target/
-.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+### Local configuration / secrets ###
+.env
+.env.*
+application-local.properties
+application-secret.properties
+
+### Logs ###
+*.log
+logs/
 
 ### STS ###
 .apt_generated
@@ -14,7 +26,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -31,3 +43,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### OS files ###
+.DS_Store
+Thumbs.db
