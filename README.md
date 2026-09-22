@@ -567,7 +567,7 @@ BUILD SUCCESS
 ---
 
 ## 📸 Screenshots
-
+/
 Planned screenshots:
 
 ```text
