@@ -568,8 +568,6 @@ BUILD SUCCESS
 
 ## 📸 Screenshots
 
-Screenshots of the final application will be added after deployment.
-
 Planned screenshots:
 
 ```text

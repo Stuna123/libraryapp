@@ -572,8 +572,6 @@ BUILD SUCCESS
 
 ## 📸 Captures d’écran
 
-Les captures finales seront ajoutées après le déploiement.
-
 Captures prévues :
 
 ```text
