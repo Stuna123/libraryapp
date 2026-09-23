@@ -15,43 +15,83 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-light border-bottom">
             <div class="container">
+
+                <!-- Logo -->
                 <a class="navbar-brand fw-bold" th:href="@{/}">
                     LibraryApp
                 </a>
 
-                <div class="d-flex gap-2 align-items-center">
-                    <a class="btn btn-outline-primary btn-sm" th:href="@{/books}">
-                        Catalogue
-                    </a>
+                <!-- Bouton hamburger visible sur les petits écrans -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-expanded="false"
+                    aria-controls="mainNavbar"
+                    aria-label="Ouvrir la navigation">
 
-                    <a sec:authorize="isAnonymous()" class="btn btn-outline-secondary btn-sm" th:href="@{/login}">
-                        Connexion
-                    </a>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <a sec:authorize="isAnonymous()" class="btn btn-outline-primary btn-sm" th:href="@{/register}">
-                        Inscription
-                    </a>
+                <!-- Contenu qui se replie sur mobile -->
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <div class="navbar-actions">
+                        <a class="btn btn-outline-primary btn-sm" th:href="@{/books}">
+                            Catalogue
+                        </a>
 
-                    <a sec:authorize="isAuthenticated()" class="btn btn-outline-primary btn-sm" th:href="@{/borrowings}">
-                        Mes emprunts
-                    </a>
+                        <a  sec:authorize="isAnonymous()"
+                            class="btn btn-outline-secondary btn-sm"
+                            th:href="@{/login}"
+                        >
+                            Connexion
+                        </a>
 
-                    <a sec:authorize="hasRole('ADMIN')" class="btn btn-outline-warning btn-sm" th:href="@{/admin}">
-                        Administration
-                    </a>
+                        <a  sec:authorize="isAnonymous()"
+                            class="btn btn-outline-primary btn-sm"
+                            th:href="@{/register}"
+                        >
+                            Inscription
+                        </a>
 
-                    <button id="themeToggle" type="button" class="btn btn-outline-dark btn-sm">
-                        Mode sombre
-                    </button>
+                        <a  sec:authorize="isAuthenticated()"
+                            class="btn btn-outline-primary btn-sm"
+                            th:href="@{/borrowings}"
+                        >
+                            Mes emprunts
+                        </a>
 
-                    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" class="d-inline">
-                        <button type="submit" class="btn btn-outline-danger btn-sm">
-                            Déconnexion
+                        <a  sec:authorize="hasRole('ADMIN')"
+                            class="btn btn-outline-warning btn-sm"
+                            th:href="@{/admin}"
+                        >
+                            Administration
+                        </a>
+
+                        <button id="themeToggle"
+                                type="button"
+                                class="btn btn-outline-dark btn-sm"
+                        >
+                            Mode sombre
                         </button>
-                    </form>
+
+                        <form sec:authorize="isAuthenticated()"
+                              th:action="@{/logout}"
+                              method="post"
+                        >
+                            <button type="submit"
+                                    class="btn btn-outline-danger btn-sm"
+                            >
+                                Déconnexion
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </nav>
+
         <div class="container py-5">
             <!--
             <section class="text-center mb-5">
@@ -360,7 +400,8 @@
             </footer>
         </div>
 
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+        </script>
         <script th:src="@{/js/book-covers.js}"></script>
         <script th:src="@{/js/theme.js}"></script>
     </body>
