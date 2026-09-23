@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+<nav th:fragment="navbar"
+     class="navbar navbar-expand-lg bg-light border-bottom">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" th:href="@{/}">
+            LibraryApp
+        </a>
+
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Ouvrir la navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <div class="navbar-actions">
+
+                <a class="btn btn-outline-primary btn-sm"
+                   th:href="@{/books}">
+                    Catalogue
+                </a>
+
+                <a sec:authorize="isAnonymous()"
+                   class="btn btn-outline-secondary btn-sm"
+                   th:href="@{/login}">
+                    Connexion
+                </a>
+
+                <a sec:authorize="isAnonymous()"
+                   class="btn btn-outline-primary btn-sm"
+                   th:href="@{/register}">
+                    Inscription
+                </a>
+
+                <a sec:authorize="isAuthenticated()"
+                   class="btn btn-outline-primary btn-sm"
+                   th:href="@{/borrowings}">
+                    Mes emprunts
+                </a>
+
+                <a sec:authorize="hasRole('ADMIN')"
+                   class="btn btn-outline-warning btn-sm"
+                   th:href="@{/admin}">
+                    Administration
+                </a>
+
+                <button id="themeToggle"
+                        type="button"
+                        class="btn btn-outline-dark btn-sm">
+                    Mode sombre
+                </button>
+
+                <form sec:authorize="isAuthenticated()"
+                      th:action="@{/logout}"
+                      method="post">
+
+                    <button type="submit"
+                            class="btn btn-outline-danger btn-sm">
+                        Déconnexion
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
