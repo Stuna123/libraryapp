@@ -274,7 +274,7 @@
 
                                 <!-- Couoverture Open Library -->
                                 <img th:if="${book.isbn != null and !#strings.isEmpty(book.isbn)}"
-                                     th:src="${'https://covers.openlibrary.org/b/isbn'
+                                     th:src="${'https://covers.openlibrary.org/b/isbn/'
                                              + #strings.replace(#strings.replace(book.isbn, '-', ''), ' ', '')
                                              + '-M.jpg?default=false'}"
                                      class="book-cover-img open-library-cover"
