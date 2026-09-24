@@ -28,18 +28,18 @@
             <div class="row g-4">
 
                 <!-- Gestion des livres -->
-                <div class="col-md-6">
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="card admin-dashboard-card h-100">
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 d-flex flex-column">
                             <h2 class="h4 fw-bold mb-3">Gestion des livres</h2>
 
                             <p class="text-muted">
                                 Ajoutez de nouveaux ouvrages, modifiez leurs informations,
                                 gérez le nombre d'exemplaires disponibles
-                                et supprimez lse livres lorsque cela est autorisé.
+                                et supprimez les livres lorsque cela est autorisé.
                             </p>
 
-                            <a th:href="@{/admin/books}" class="btn btn-primary">
+                            <a th:href="@{/admin/books}" class="btn btn-primary mt-auto align-self-start">
                                 Gérer les livres
                             </a>
                         </div>
@@ -47,35 +47,36 @@
                 </div>
 
                 <!-- Gestion des emprunts -->
-                <div class="col-md-4">
+                <div class="col-12 col-md-6 col-lg-4">
 
                     <div class="card admin-dashboard-card h-100">
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 d-flex flex-column">
                             <h2 class="h4 fw-bold mb-3">Gestion des emprunts</h2>
 
                             <p class="text-muted">
                                 Consultez tous les emprunts réalisés,
                                 les utilisateurs concernés,
-                                les dates de retour et leurs différents status.
+                                les dates de retour et leurs différents statuts.
                             </p>
 
-                            <a class="btn btn-warning" th:href="@{/admin/borrowings}">
+                            <a class="btn btn-warning mt-auto align-self-start" th:href="@{/admin/borrowings}">
                                 Voir les emprunts
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <!-- Gestion des utilisateurs -->
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="card admin-dashboard-card h-100">
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 d-flex flex-column">
                             <h2 class="h4 fw-bold mb-3"> Gestion des utilisateurs </h2>
 
                             <p class="text-muted">
                                 Consultez tous les utilisateurs inscrits, leur rôle et leur date d'inscription.
                             </p>
 
-                            <a class="btn btn-outline-primary btn-sm" th:href="@{/admin/users}">
+                            <a class="btn btn-outline-primary mt-auto align-self-start" th:href="@{/admin/users}">
                                 Voir les utilisateurs
                             </a>
                         </div>
