@@ -5,9 +5,12 @@ import com.libraryapp.entity.Role;
 import com.libraryapp.form.RegisterForm;
 import com.libraryapp.repository.AppUserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Sort;
+import java.util.List;
 /**
  * Service responsible for user-related business operations.
  *
@@ -35,6 +38,12 @@ public class UserService {
                 .build();
 
         appUserRepository.save(appUser);
+    }
+
+    public List<AppUser> getAllUsers() {
+        return appUserRepository.findAll(
+            Sort.by(Sort.Direction.DESC, "createdAt")
+        );
     }
 
 }
