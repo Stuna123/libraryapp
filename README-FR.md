@@ -579,37 +579,36 @@ Page d'accueil
 ```
 ![img.png](img.png)
 
-```
+```text
 Catalogue
 ```
 ![img_3.png](img_3.png)
 
-```
+```text
 Détail d'un livre
 ```
 ![img_5.png](img_5.png)
 
-```
+```text
 Historique des emprunts
 ```
 ![img_7.png](img_7.png)
 
-```
+```text
 Dashboard administrateur
 ```
 ![img_9.png](img_9.png)
 
-```
+```text
 Gestion des livres
 ```
 ![img_11.png](img_11.png)
 
-```
+```text
 Mode clair
 ```
 ![img_13.png](img_13.png)
 
-```
 
 ---
 
