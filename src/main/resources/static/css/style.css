@@ -200,10 +200,35 @@ a {
 
 .book-card .card-body {
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
+.book-card-title {
+    min-height: 4.5rem;
+    line-height: 1.25;
+}
+
+.book-card-author {
+    min-height: 3rem;
+}
+
+.book-card-description {
+    min-height: 5.25rem;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+
 .book-cover-placeholder {
-    height: 180px;
+    height: 100%;
+    width: 100%;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     display: flex;
@@ -215,7 +240,7 @@ a {
 
 .book-cover-img {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: contain;
     display: block;
 }
@@ -540,7 +565,12 @@ body.dark-mode .form-text {
 ========================================================= */
 .book-cover-wrapper {
     width: 100%;
+    height: 180px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 /* =========================================================
